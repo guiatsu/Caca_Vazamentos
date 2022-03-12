@@ -4,29 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caça Vazamentos</title>
+    <link href="http://fonts.cdnfonts.com/css/league-spartan" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}"/>
+
+    <title>Caça Vazamentos </title>
 </head>
 
-
 <body>
-
+    
     <header> 
-        <h1>Caça Vazamentos</h1>
+        <div class="navbar">
+            <img src="static/images/logo_1.png" alt="logo" class="logo" width="200" height="50"/>
+            <nav> 
+                <ul>
+                    <li><a href="#"> Notificações </a></li>
+                    <li><a href="#"> Fulaninho de Sousa </a></li>
+                </ul>
+            </nav>           
+        </div>
     </header>
 
     <main> 
 
-        <h1>HELLO WORLD,XABLAU</h1>
-        
-        <a href="{{ url_for('teste') }}">yurilinduuu</a>
+        <div class="welcoming">
+            <p>Olá! O que você <br> gostaria de fazer? </p>  
+        </div> 
 
-        <a href="{{ url_for('user',user_name=user_name ) }}">Usuário</a>
+        <container> 
+        <div class="menuIcon"> 
+            <a href="{{ url_for('static',filename='templates/forms.html') }}"><img src="static/images/2.png" width="150" height="150"/>
+        </div>
+
+        <div class="menuIcon"> 
+            <a href="{{ url_for('static',filename='templates/forms.html') }}"><img src="static/images/3.png" width="150" height="150"/></a>
+        </div>
+
+        <div class="menuIcon"> 
+            <a href="{{ url_for('static',filename='templates/forms.html') }}"><img src="static/images/4.png" width="150" height="150"/></a>
+    
+        </div>
+        </container>
+
+        <container> 
+            <div class="menu"> 
+                <a href="{{ url_for('static',filename='templates/forms.html') }}"><p>Realizar uma denúncia</p></a>
+            </div>
+    
+            <div class="menu"> 
+                <a href="{{ url_for('static',filename='templates/forms.html') }}"><p>Verificar Vazamentos</p></a>
+            </div>
+    
+            <div class="menu"> 
+                <a href="{{ url_for('static',filename='templates/forms.html') }}"><p>Consultar minhas denúncias<p></a>
+        
+            </div>
+            </container>
         
     </main>
 
     <footer> 
-        <div>
-            <h6>Caça Vazamentos 2022 todos os direitos reservados</h6> 
+        <div class="contatc">
             <h6>Entre em contato: caçavazamentos@example.com</h6> 
         </div> 
     </footer>
@@ -35,3 +72,5 @@
 
 
 </html>
+
+<!--   COLOQUEM OS CURSORES INATIVOS AQUI -->

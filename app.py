@@ -1,7 +1,11 @@
+import re
 import sqlite3
+from flask import Flask, render_template, url_for, request,redirect,session,flash, g, \
+    abort, flash
+from models import *
 
-from flask import Flask, render_template, url_for, request,redirect,session,flash, g
 app = Flask(__name__)
+
 @app.route("/")
 def homepage():
     return render_template("index.html")
@@ -14,7 +18,9 @@ def user(user_name):
 def teste():
     return render_template("teste.html")
 
+@app.route("/database.html")
+def show_db():
+    return render_template("database.html")
 
-if __name__ == "__main__":
-    app.run(debug=True)
-    
+db.create_tables([Pessoa,Endereco,Sensor,Leitura,Denuncia])
+app.run(debug=True)
