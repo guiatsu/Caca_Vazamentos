@@ -15,10 +15,11 @@ def is_alerta(leitura):
     return False
 
 
-def main():
+def analysis():
 
     sensors = [s for s in Sensor.select()]
-    sensors = [sensors[0]]
+
+    min_consumo = 50
 
     for s in range(len(sensors)):
         
@@ -40,14 +41,7 @@ def main():
 
                     else: break
 
-                if (leituras[i].consumo >= 1.2* comparacao.consumo):
-                    
-                    descricao = "SENSOR " + str(s+1) + " AVISOU POSSIVEL VAZAMENTO\n" +\
-                                "CONSUMO DE " + str(leituras[i].consumo) + " m3\n" +\
-                                "LEITURA FEITA NA DATA " + str(leituras[i].data_leitura) +\
-                                " \nCOMPARADO COM CONSUMO DE " + str(comparacao.consumo)+"\n"
+                if (leituras[i].consumo >= 1.2* comparacao.consumo ) and (comparacao.consumo > min_consumo):
 
                     if( not is_alerta(leituras[i]) ):
                         Alerta_Sensor.create(fk_leitura=leituras[i])
-
-                    print(descricao)

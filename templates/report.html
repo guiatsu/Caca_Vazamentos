@@ -4,29 +4,168 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="http://fonts.cdnfonts.com/css/league-spartan" rel="stylesheet">
+    <link rel="icon" href="{{url_for('static',filename='/images/1.png')}}">
+    <script src="https://kit.fontawesome.com/a675d69de3.js" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}"/>
+    <script src="{{url_for('static',filename='jquery/dist/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static',filename='teste/venom-button.min.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='teste/venom-button.min.css')}}">
+
+    <script>
+        $(function() {
+            $('#user').hover(
+            function() {
+                $('#invisibox').css('visibility', 'visible')
+            },
+            function(){
+                $('#invisibox').css('visibility', 'hidden')
+            }
+            
+            );
+            
+            $('#invisibox').hover(
+                function() {
+                    $(this).css('visibility','visible')
+                },
+                function() {
+                    $(this).css('visibility','hidden')
+                
+            });
+            $('#bell').hover(
+            function() {
+                $('#notif-invisibox').css('visibility', 'visible')
+            },
+            function(){
+                $('#notif-invisibox').css('visibility', 'hidden')
+            }
+            
+            );
+            
+            $('#notif-invisibox').hover(
+                function() {
+                    $(this).css('visibility','visible')
+                },
+                function() {
+                    $(this).css('visibility','hidden')
+                
+            });
+        });
+        </script>
+
+    <title>Meus comunicados </title>
+
 </head>
+
 <body>
+    
     <header> 
         <div class="navbar">
-            <img src="static/images/logo_1.png" alt="logo" class="logo" width="200" height="50"/>
+            <a href="{{ url_for('user') }}"><img src="{{url_for('static',filename='/images/logo_1.png')}}" alt="logo" class="logo" width="200" height="50"/></a>
             <nav> 
                 <ul>
-                    <li><a href="#"> Notificações </i> </a></li>
-                    <li><a href="#"> Fulaninho de Sousa </a></li>
+                    <li><a href="#" id="bell"><i class="fa-solid fa-bell"></i> &nbsp Notificações</a></li>
+                    <li id="user"><a href="#" id="oxe"><i class="fa-solid fa-user"></i> &nbsp <span>{{current_user.get_nome()}}</span></a></li>
+                    <div class = "invisi-box" style = 'visibility: hidden' id="invisibox">Total de créditos: 00 <br> <a href="{{url_for('logout')}}">Sair</a> </div>
+                    <div class = "notif-invisi-box" style = 'visibility: hidden' id="notif-invisibox">Nenhuma notificação</div>
                 </ul>
             </nav>           
         </div>
     </header>
+
     <main> 
 
-
+        <div id="myButton"></div>
+        <script type="text/javascript">
+            $('#myButton').venomButton({
+                size: '100px',                        
+                
+                chatMessage: 'Bom dia caçador! Não encontrou o que você procurava? Eu posso te ajudar.',
+                showPopup: true,
+                headerColor:'#231F20',
+                buttonColor:'#231F20',
+                avatar: '{{url_for("static",filename="/images/Chat_bot.png")}}',
+                buttonImage: '{{url_for("static",filename="/images/Chat_bot.png")}}',
+                position: "right",
+                linkButton: false,
+                showOnIE: false,
+                zIndex: 10,
+                nameClient: "Caçador Chefe",
+                headerTitle: 'Caça Vazamentos',
+            });
+        </script>
+        
         <div>
-            <h1> Minhas Denúncias </h1>
+            <h1 class="titlereport"> <i class="fa-solid fa-list-check" id="iconzin"></i> Checar meus comunicados</h1>
         </div>
-        <div class="report">
-            <p>Você ainda não tem denúncias :( </p>  
-        </div> 
+
+        <div class="message">
+            {% if len == 0%}
+                <p> Você ainda não realizou um comunicado :( <br></p>
+            {%else%}
+                <table>
+                    <tr>
+                        <th>Tipo do vazamento</th>
+                        <th>Descrição</th>
+                        <th>Status</th>
+                    </tr>
+                    
+                    
+                    {%for d in denuncias%}
+                    <tr>
+                        <td>{{d.tipo_vazamento}}</td>
+                        <td>{{d.descricao}}</td>
+                        <td>{{d.status}}</td>
+                    </tr>     
+                    {%endfor%}
+                    
+                </table>
+                
+            {% endif %}
+        </div>         
     </main>
-    </body>
+
+
+
+    <footer class="footer"> 
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Entre em contato </h4>
+                    <ul>
+                        <li>Email: caçavazamentos@example.com</li>
+                        <li>Telegram: @caçavazamentos</li>
+                    </ul>
+                </div>   
+                <div class="footer-col">
+                    <h4>Dúvidas frequentes</h4>
+                    <ul>
+                        <li>Onde posso gastar meus créditos?</li>
+                        <p class="faqtext">Você pode utilizá-los como desconto em sua conta de água ou em nossas empresas parceiras. </p>
+                        <li>Como sei que meu comunicado foi computado?</li>
+                        <p class="faqtext">Você receberá uma confirmação em seu e-mail cadastrado. Toda vez que houver uma atualização referente ao seu comunicado, te enviaremos um alerta por lá!
+                    </ul>
+                </div> 
+                <div class="footer-col">
+                    <h4>Fique por dentro de tudo </h4>
+                    <ul>
+                        <li><a href="#" class="blog">Novidades</li></a>
+                        <li><a href="#" class="blog">Futuras melhorias</a></li>
+                    </ul>
+                </div> 
+                <div class="footer-col">
+                    <h4>Redes Sociais </h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+    </footer>
+</body>
 </html>

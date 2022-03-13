@@ -12,16 +12,16 @@
 
         {% for pessoa in pessoas %}
 
-            <p> {{pessoa.cpf}}, {{pessoa.email}}</p>
+            <p> {{pessoa.cpf}}, {{pessoa.nome}}, {{pessoa.email}}</p>
 
         {%endfor%}
             
-    <!-- <h3>Denuncias</h3>
+    <h3>Denuncias</h3>
         {% for d in denuncias %}
 
             <p> User {{d.fk_pessoa.cpf}} - "{{d.descricao}}" </p>
 
-        {%endfor%} -->
+        {%endfor%}
         
     <h3>Endereco</h3>
 
@@ -47,15 +47,6 @@
             <p> Consumo : {{l.consumo}}, {{l.data_leitura}}, sensor {{l.fk_sensor}}</p>
 
         {%endfor%}
-
-        <h3>Alerta Sensor</h3>
-
-        {% for a in alertas_sensores %}
-
-            <p> {{a.fk_leitura.consumo}}, {{a.fk_leitura.data_leitura}}</p>
-
-        {%endfor%}
-
 
 </body>
 </html>

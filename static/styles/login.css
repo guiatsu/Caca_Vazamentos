@@ -7,13 +7,14 @@ body {
     overflow: hidden;
 }
 
+    
 .center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 670px;
-    height: 700px;
+    width: 40%;
+    height: 80%;
     background-color: white;
 }
 
@@ -21,7 +22,16 @@ body {
     padding: 5px;
     margin: 30px 35px;
 }
-
+.password1 {
+    width: 45%;
+    margin-right: 30px !important;
+    display: inline-block;
+}
+.password2 {
+    width: 45%;
+    margin-left: 30px !important;
+    display: inline-block;
+}
 .center form {
     padding: 0 40px;
     box-sizing: border-box;
@@ -101,3 +111,4 @@ input[type="submit"]:hover {
     height: 50%;
     padding-top:200px;
 }
+

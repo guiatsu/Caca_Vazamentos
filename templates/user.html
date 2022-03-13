@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="http://fonts.cdnfonts.com/css/league-spartan" rel="stylesheet">
+    <link rel="icon" href="{{url_for('static',filename='/images/1.png')}}">
     <script src="https://kit.fontawesome.com/a675d69de3.js" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}"/>
     <script src="{{url_for('static',filename='jquery/dist/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static',filename='teste/venom-button.min.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='teste/venom-button.min.css')}}">
+    
+    
     <script>
         $(function() {
             $('#user').hover(
@@ -48,6 +53,7 @@
                 
             });
         });
+        
         </script>
 
     <title>Caça Vazamentos </title>
@@ -55,60 +61,81 @@
 </head>
 
 <body>
-    
     <header> 
         <div class="navbar">
-        <img src="{{url_for('static',filename='/images/logo_1.png')}}" alt="logo" class="logo" width="200" height="50"/>
+            <a href="{{ url_for('user') }}"><img src="{{url_for('static',filename='/images/logo_1.png')}}" alt="logo" class="logo" width="200" height="50"/></a>
             <nav> 
                 <ul>
                     <li><a href="#" id="bell"><i class="fa-solid fa-bell"></i> &nbsp Notificações</a></li>
-                    <li id="user"><a href="#" id="oxe"><i class="fa-solid fa-user"></i> &nbsp {{user_name}} </a></li>
-                    <div class = "invisi-box" style = 'visibility: hidden' id="invisibox">Total de créditos: 00 <br> Sair </div>
+                    <li id="user"><a href="#" id="oxe"><i class="fa-solid fa-user"></i> &nbsp <span>{{current_user.get_nome()}}</span></a></li>
+                    <div class = "invisi-box" style = 'visibility: hidden' id="invisibox">Total de créditos: 00 <br><a href="{{url_for('logout')}}">Sair</a> </div>
                     <div class = "notif-invisi-box" style = 'visibility: hidden' id="notif-invisibox">Nenhuma notificação</div>
                 </ul>
             </nav>           
         </div>
     </header>
-
+    
     <main> 
+        
+        
         <div class="welcoming">
             <p>Olá! O que você <br> gostaria de fazer? </p>  
         </div> 
 
+        <div id="myButton"></div>
+        <script type="text/javascript">
+            $('#myButton').venomButton({
+                size: '100px',                        
+                
+                chatMessage: 'Bom dia caçador! Não encontrou o que você procurava? Eu posso te ajudar.',
+                showPopup: true,
+                headerColor:'#231F20',
+                buttonColor:'#231F20',
+                avatar: '{{url_for("static",filename="/images/Chat_bot.png")}}',
+                buttonImage: '{{url_for("static",filename="/images/Chat_bot.png")}}',
+                position: "right",
+                linkButton: false,
+                showOnIE: false,
+                zIndex: 10,
+                nameClient: "Caçador Chefe",
+                headerTitle: 'Caça Vazamentos',
+            });
+        </script>
+          
         <div class="service">
             <div class="box">
                 <div class="card">
-                    <i class="fa-solid fa-droplet-slash"></i>
-                    <h5>Vazamentos</h5>
+                    <i class="fa-solid fa-hand-holding-droplet"></i>
+                    <h5>Comunicar vazamentos</h5>
                     <div class="pra">
-                        <p>Pensando em diminuir o desperdício de água e assim pouparmos nossos recursos, contamos com toda a nossa comunidade para identificar e tratar vazamentos. Notou algum por aí? Relata aqui pra gente e se torne um #CaçaVazamentos ;)</p>
+                        <p>Pensando em diminuir o desperdício de água e assim pouparmos nossos recursos, contamos com toda a nossa comunidade para identificar e tratar vazamentos. Notou algum por aí? Comunica aqui pra gente e se torne um #CaçaVazamentos ;)</p>
                         <p style="text-align: center;">
-                            <a class="button" href="{{ url_for('forms') }}">Relatar vazamento</a>
+                            <a class="button user-btn" href="{{ url_for('forms') }}">Comunicar</a>
                         </p>
                         
                     </div>
                 </div>
     
                 <div class="card">
-                    <i class="fa-solid fa-hand-holding-droplet"></i>
-                    <h5>Falta de saneamento</h5>
+                    <i class="fa-solid fa-droplet-slash"></i>
+                    <h5>Falar sobre saneamento</h5>
                     <div class="pra">
                         <p>Sabemos que, infelizmente, muitos locais ainda não contam com uma rede de saneamento básico ou encontram problemas com redes precárias. Queremos resolver esse problema e levar melhorias para todos. Contamos com vocês, caçadores de vazamentos, para nos ajudar a identificar locais que precisam de nossa atenção.</p>
     
                         <p style="text-align: center;">
-                            <a class="button" href="{{ url_for('forms1') }}">Relatar falta de saneamento</a>
+                            <a class="button user-btn" href="{{ url_for('forms1') }}">Falar sobre</a>
                         </p>
                     </div>
                 </div>
 
                 <div class="card">
                     <i class="fa-solid fa-list-check"></i>
-                    <h5>Denúncias já realizadas</h5>
+                    <h5>Checar meus comunicados</h5>
                     <div class="pra">
                         <p>Já é um Caça Vazamentos e gostaria de estar por dentro dos problemas que já relatou? Por aqui te mantemos atualizado sobre seus relatos e sobre o impacto deles na nossa luta para preservar nossos recursos naturais.</p>
     
                         <p style="text-align: center;">
-                            <a class="button" href="{{ url_for('report') }}">Checar minhas denúncias</a>
+                            <a class="button user-btn" style="padding-left:42.5px;padding-right:42.5px"  href="{{ url_for('report') }}">Checar</a>
                         </p>
                     </div>
                 </div>
@@ -130,13 +157,33 @@
                     <h4>Dúvidas frequentes</h4>
                     <ul>
                         <li>Onde posso gastar meus créditos?</li>
-                        <li>Como sei que minha denúncia foi computada?</li>
+                        <p class="faqtext">Você pode utilizá-los em nossas empresas parceiras. </p>
+                        <li>Como sei que meu comunicado foi computado?</li>
+                        <p class="faqtext">Você receberá uma confirmação em seu e-mail cadastrado. Toda vez que houver uma atualização referente ao seu comunicado, te enviaremos um alerta por lá!
                     </ul>
+                </div> 
+                <div class="footer-col">
+                    <h4>Fique por dentro de tudo </h4>
+                    <ul>
+                        <li><a href="#" class="blog">Novidades</li></a>
+                        <li><a href="#" class="blog">Futuras melhorias</a></li>
+                    </ul>
+                </div> 
+                <div class="footer-col">
+                    <h4>Redes Sociais </h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div> 
             </div>
         </div>
 
     </footer>
+
+    
 
 </body>
 

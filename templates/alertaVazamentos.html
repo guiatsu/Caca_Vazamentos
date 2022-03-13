@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://fonts.cdnfonts.com/css/league-spartan" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a675d69de3.js" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/alertaVazamentos.css') }}"/>
+    <script type="text/javascript" src="{{url_for('static',filename='teste/venom-button.min.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='teste/venom-button.min.css')}}">
+
+</head>
+<body>
+    
+    <header> 
+        <div class="navbar">
+        <a href="{{ url_for('user') }}"><img src="{{url_for('static',filename='/images/logo_1.png')}}" alt="logo" class="logo" width="200" height="50"/>
+            <nav> 
+                <ul>
+                    <li><a href="#" id="bell"><i class="fa-solid fa-bell"></i> &nbsp Notificações</a></li>
+                    <li id="user"><a href="#" id="oxe"><i class="fa-solid fa-user"></i> &nbsp Admin </a></li>
+                    <div class = "invisi-box" style = 'visibility: hidden' id="invisibox">Total de créditos: 00 <br> <a href="{{url_for('logout')}}">Sair</a> </div>
+                    <div class = "notif-invisi-box" style = 'visibility: hidden' id="notif-invisibox">Nenhuma notificação</div>
+                </ul>
+            </nav>           
+        </div>
+    </header>
+    <div id="myButton"></div>
+        <script type="text/javascript">
+            $('#myButton').venomButton({
+                size: '100px',                        
+                
+                chatMessage: 'Bom dia! Não encontrou o que você procurava? Eu posso te ajudar.',
+                showPopup: true,
+                headerColor:'#231F20',
+                buttonColor:'#231F20',
+                avatar: '{{url_for("static",filename="/images/Chat_bot.png")}}',
+                buttonImage: '{{url_for("static",filename="/images/Chat_bot.png")}}',
+                position: "right",
+                linkButton: false,
+                showOnIE: false,
+                zIndex: 10,
+                nameClient: "Caçador Chefe",
+                headerTitle: 'Caça Vazamentos',
+            });
+        </script>
+        
+
+    <div class="alertas">
+
+        <h3>Possiveis vazamentos detectados</h3>
+        
+        <table>
+
+            <tr>
+                <th>Sensor</th>
+                <th>Consumo em L</th>
+                <th>Data da Leitura</th>
+            </tr>
+
+            {% for a in alertas_sensores %}
+            
+                <tr>
+                    <td>Sensor {{a.fk_leitura.fk_sensor}}</td>
+                    <td> {{a.fk_leitura.consumo}} </td>
+                    <td> {{a.fk_leitura.data_leitura}}</td>
+                </tr>
+            
+            {%endfor%}
+
+
+
+        </table>
+            
+    </div>    
+
+</body>
+</html>

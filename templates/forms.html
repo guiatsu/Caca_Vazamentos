@@ -4,21 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link href="http://fonts.cdnfonts.com/css/league-spartan" rel="stylesheet">
+    <link rel="icon" href="{{url_for('static',filename='/images/1.png')}}">
+    <script src="https://kit.fontawesome.com/a675d69de3.js" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}"/>
-    <title>Denúncias</title>
+    <script src="{{url_for('static',filename='jquery/dist/jquery.js')}}"></script>
+    
+    <script type="text/javascript" src="{{url_for('static',filename='teste/venom-button.min.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='teste/venom-button.min.css')}}">
+    <script>
+        $(function() {
+            $('#user').hover(
+            function() {
+                $('#invisibox').css('visibility', 'visible')
+            },
+            function(){
+                $('#invisibox').css('visibility', 'hidden')
+            }
+            
+            );
+            
+            $('#invisibox').hover(
+                function() {
+                    $(this).css('visibility','visible')
+                },
+                function() {
+                    $(this).css('visibility','hidden')
+                
+            });
+            $('#bell').hover(
+            function() {
+                $('#notif-invisibox').css('visibility', 'visible')
+            },
+            function(){
+                $('#notif-invisibox').css('visibility', 'hidden')
+            }
+            
+            );
+            
+            $('#notif-invisibox').hover(
+                function() {
+                    $(this).css('visibility','visible')
+                },
+                function() {
+                    $(this).css('visibility','hidden')
+                
+            });
+        });
+        </script>
+
+    <title>Relatar vazamento </title>
+
 </head>
 
 <body>
+    
     <header> 
         <div class="navbar">
-            <img src="static/images/logo_1.png" alt="logo" class="logo" width="200" height="50"/>
-            <nav> 
+
+            <a href="{{ url_for('user') }}"><img src="{{url_for('static',filename='/images/logo_1.png')}}" alt="logo" class="logo" width="200" height="50"/></a>
+            <nav>  
                 <ul>
-                    <li><a href="#"> Notificações </a></li>
-                    <li><a href="#"> Fulaninho de Sousa </a></li>
-                </ul>
+                    <li><a href="#" id="bell"><i class="fa-solid fa-bell"></i> &nbsp Notificações</a></li>
+                    <li id="user"><a href="#" id="oxe"><i class="fa-solid fa-user"></i> &nbsp <span>{{current_user.get_nome()}}</span> </a></li>
+                    <div class = "invisi-box" style = 'visibility: hidden' id="invisibox">Total de créditos: 00 <br> <a href="{{url_for('logout')}}">Sair</a> </div>
+                    <div class = "notif-invisi-box" style = 'visibility: hidden' id="notif-invisibox">Nenhuma notificação</div>
+                </ul    >
             </nav>           
         </div>
     </header>
@@ -27,29 +79,97 @@
 
 
         <div>
-            <h1> Enviar uma denúncia </h1>
+            <h1 class="titlereport"> <i class="fa-solid fa-hand-holding-droplet" id="iconzin"></i> Enviar um comunicado</h1>
         </div>
 
-        <form action="#" method="post">
-            <label for="reports">1. Escolha o tipo de denúncia: </label> <br>
-            <select name="reports" id="reports"> 
-                <option value="leak">Vazamento</option>
-                <option value="sanitation">Falta de saneamento</option>
+        <form class="report" action="#" method="post">
+            <label for="reports" class="labelforms" >1. Escolha o tipo de comunicado: </label> <br><br>
+            <select name="reports"  class="inputforms" id="reports"> 
+                <option value="interno" class="items">Vazamento interno</option>
+                <option value="externo" class="items">Vazamento externo</option>
             </select><br><br>
 
-            <label for="localization">2. Onde está ocorrendo o vazamento? </label> <br>
-            <input type="text" name="cep" id="cep" placeholder="CEP"> <br> <br>
-            
-            <input type="text" name="rua" id="rua" placeholder="Rua"> <br> <br>
+            <label for="localization" class="labelforms">2. Onde está ocorrendo o vazamento? </label> <br> <br>
 
-            <input type="text" name="numero" id="numero" placeholder="Número"> <br> <br>
+            <input type="text" class="inputforms" name="cep" id="cep" placeholder="CEP"> <br> <br>
+
+            <input type="text" class="inputforms" name="rua" id="city" placeholder="Cidade" required> <br> <br>
             
-            <label for="description">3. Descrição: <label> <br> 
-                <textarea rows="10" cols="40" id="description" name="description"></textarea>    <br>
+            <input type="text" class="inputforms" name="rua" id="street" placeholder="Rua" required> <br> <br>
+
+            <input type="text" class="inputforms" name="numero" id="number" placeholder="Número"> <br> <br>
+
+            <input type="text" class="inputforms" name="referencia" id="reference" placeholder="Ponto de referência"> <br> <br>
+            
+            <label for="description" class="labelforms">3. Descrição: <label> <br> <br>
+                <textarea class="inputforms" placeholder="Nos conte um pouco mais sobre o ocorrido..."  id="description" name="description"></textarea> <br>  <br>
+                <label for="sendfiles" class="sendfiles">4. Anexe fotos do ocorrido: </label> <br> <br> 
+                <input type="file" name="sendfiles" id="files"> <br> <br>
                 <input type="submit" class ="btn btn-light" value="Enviar">
         </form>
+
+        
             
     </main>
-    
+    <div id="myButton"></div>
+        <script type="text/javascript">
+            $('#myButton').venomButton({
+                size: '100px',                        
+                
+                chatMessage: 'Bom dia caçador! Não encontrou o que você procurava? Eu posso te ajudar.',
+                showPopup: true,
+                headerColor:'#231F20',
+                buttonColor:'#231F20',
+                avatar: '{{url_for("static",filename="/images/Chat_bot.png")}}',
+                buttonImage: '{{url_for("static",filename="/images/Chat_bot.png")}}',
+                position: "right",
+                linkButton: false,
+                showOnIE: false,
+                zIndex: 10,
+                nameClient: "Caçador Chefe",
+                headerTitle: 'Caça Vazamentos',
+            });
+        </script>
+        
+
+    <footer class="footer"> 
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Entre em contato </h4>
+                    <ul>
+                        <li>Email: cacavazamentos@example.com</li>
+                        <li>Telegram: @cacavazamentos</li>
+                    </ul>
+                </div>   
+                <div class="footer-col">
+                    <h4>Dúvidas frequentes</h4>
+                    <ul>
+                        <li>Onde posso gastar meus créditos?</li>
+                        <p class="faqtext">Você pode utilizá-los em nossas empresas parceiras. </p>
+                        <li>Como sei que meu comunicado foi computado?</li>
+                        <p class="faqtext">Você receberá uma confirmação em seu e-mail cadastrado. Toda vez que houver uma atualização referente ao seu comunicado, te enviaremos um alerta por lá!
+                    </ul>
+                </div> 
+                <div class="footer-col">
+                    <h4>Fique por dentro de tudo </h4>
+                    <ul>
+                        <li><a href="#" class="blog">Novidades</li></a>
+                        <li><a href="#" class="blog">Futuras melhorias</a></li>
+                    </ul>
+                </div> 
+                <div class="footer-col">
+                    <h4>Redes Sociais </h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+    </footer>
 </body>
 </html>

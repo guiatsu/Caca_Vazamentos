@@ -126,7 +126,7 @@ ul {
 }
 
 .footer-col{
-    width: 25%;
+    width: 22%;
     padding: 0 15px;
 }
 
@@ -149,6 +149,24 @@ ul {
     height: 2px;
     box-sizing: border-box;
     width: 50px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	color: #F2F2F2;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #5DADEC;
+}
+
+.faqtext {
+    font-size: 14px;
+    font-style: italic;
 }
 
 .card .button{
@@ -221,4 +239,120 @@ h5{
 	margin-bottom: 25px;
     text-align: justify;
     font-family: 'Nunito Sans', sans-serif;
+}
+
+.labelforms {
+    font-family: 'Nunito Sans', sans-serif;
+    color: #231F20;
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.report {
+    margin: 20px 50px;
+}
+
+.inputforms {
+    padding: 5px;
+    height: 30px;
+    width: 750px; 
+    font-size: 12px;
+    border: none;
+    background-color: #F2F2F2;
+    outline: none;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+#description {
+    height: 230px;
+    width: 750px; 
+    resize: none;
+}
+
+.titlereport {
+    font-family: 'League Spartan', sans-serif;
+    margin-left: 50px;
+    padding-top: 50px;
+}
+
+#reports {
+    width: 761px;
+}
+
+#reports select {
+    display: none;
+}
+
+.select-items div, .select-selected {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 11px;
+}
+
+#iconzin {
+    color: #5DADEC;
+}
+
+.blog {
+    color: #878E94;
+    text-decoration: none;
+}
+
+.message {
+    margin: 10px 0px 400px 50px;
+    background-color: #C7D0D8;
+    
+}
+
+@media screen and(min-width: 768px){
+
+    nav{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    nav ul{
+        flex-direction: row;
+        width:70%;
+         
+    }
+    header{
+        height:600px;
+        height:60vh;
+        justify-content: center;
+
+        
+    }
+    #description{
+        height:250px;
+        height:30vh;
+        justify-content: center;
+        min-height:250px;
+    
+
+    }
+    footer{
+        height:600px;
+        height:60vh;
+        justify-content: center;
+    }
+}   
+.user-btn{
+    position: absolute;
+    bottom: 30px;
+    right: 32.5%;
+    width: 114.5 !important;
+}
+
+/* Pode mudar essas table, é só um teste */
+
+table, tr, th {
+    margin-left:3em;
+    border:1px solid black;
+}
+
+th, td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 0.75em;
 }
