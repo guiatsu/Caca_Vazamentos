@@ -50,30 +50,42 @@ def main():
         leituras = [l for l in Leitura.select().where(Leitura.fk_sensor == s+1)]
 
         for i in range(len(leituras)):  
+
             if i > 1:
+
                 j = i-1
 
                 comparacao = leituras[j]
 
                 while(j >= 1):
+                
+                    is_alerta = len(Alerta_Sensor.select().where(Alerta_Sensor.fk_leitura == comparacao)) > 0
                     
-                    if(len(Alerta_Sensor.select().where(Alerta_Sensor.fk_leitura == comparacao))):
-                        comparacao = leituras[j-1]
-                    
-                if (len(Alerta_Sensor.select().where(Alerta_Sensor.fk_leitura == comparacao)) == 0) and (leituras[i].consumo >= 1.2* comparacao.consumo):
+                    if(is_alerta):
+                        j-=1
+                        comparacao = leituras[j]
 
+                        if(j == 0):
+                            is_alerta = False
+                        
 
+                    else: break
+
+                if (not is_alerta) and (leituras[i].consumo >= 1.2* comparacao.consumo):
                     
                     descricao = "SENSOR " + str(s+1) + " AVISOU POSSIVEL VAZAMENTO\n" +\
                                 "CONSUMO DE " + str(leituras[i].consumo) + " m3\n" +\
-                                "LEITURA FEITA NA DATA " + str(leituras[i].data_leitura)
+                                "LEITURA FEITA NA DATA " + str(leituras[i].data_leitura) +\
+                                " \nCOMPARADO COM CONSUMO DE " + str(comparacao.consumo)
 
-                    Alerta_Sensor.create(fk_leitura=leituras[i])
+                    if(len(Alerta_Sensor.select().where(Alerta_Sensor.fk_leitura == leituras[i]))) == 0:
+                        Alerta_Sensor.create(fk_leitura=leituras[i])
 
                     print(descricao)
                     print()
 
-
+        for a in Alerta_Sensor.select():
+            print(a.fk_leitura.consumo)
 
 
     # print("NO MES  " + str(i) + "  DEU MERDA")

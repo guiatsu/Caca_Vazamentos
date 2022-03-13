@@ -32,8 +32,9 @@ def databaseshow():
     enderecos = [e for e in Endereco.select()]
     leituras = [l for l in Leitura.select()]
     sensores = [s for s in Sensor.select()]
+    alertas_sensores = [a for a in Alerta_Sensor.select()]
 
-    return render_template("database.html", pessoas=pessoas, denuncias = denuncias, enderecos=enderecos, leituras=leituras, sensores=sensores)
+    return render_template("database.html", pessoas=pessoas, denuncias = denuncias, enderecos=enderecos, leituras=leituras, sensores=sensores, alertas_sensores = alertas_sensores)
     
 
 @app.route("/forms", methods=["POST","GET"])
@@ -70,8 +71,11 @@ if __name__ == "__main__":
 
     # db.create_tables([Pessoa,Endereco,Sensor,Leitura,Denuncia,Alerta_Sensor])
     main()
-    # print(Endereco.select().where(Endereco.cep == "123").dicts())
 
+
+
+    # INSERCOES DO BD ABAIXO:
+    {
     # pessoas = [
     #     {"cpf":"12345678900", "email": "p1@email.com", "senha": "123456"},
     #     {"cpf":"36600036600", "email": "p2@email.com", "senha": "123456"},
@@ -211,9 +215,6 @@ if __name__ == "__main__":
     # Leitura.insert_many(leituras3).execute()
     # Leitura.insert_many(leituras4).execute()
     # Leitura.insert_many(leituras5).execute()
-    app.run(debug=True)
-
-
 #     denuncias = [
 
 #         {},
@@ -229,3 +230,7 @@ if __name__ == "__main__":
 #         {},
 #         {},
 #     ]
+    }
+    
+    app.run(debug=True)
+

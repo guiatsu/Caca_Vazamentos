@@ -48,6 +48,14 @@
 
         {%endfor%}
 
+        <h3>Alerta Sensor</h3>
+
+        {% for a in alertas_sensores %}
+
+            <p> {{a.fk_leitura.consumo}}, {{a.fk_leitura.data_leitura}}</p>
+
+        {%endfor%}
+
 
 </body>
 </html>
