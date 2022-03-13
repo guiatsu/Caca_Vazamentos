@@ -1,44 +1,19 @@
 from models import *
 
-def get_past_avg(dataUntilToday):
-
-    if(len(dataUntilToday) == 0): return 0
-
-    if(len(dataUntilToday) == 1): return 0
-    print("----------------media de numero {}------------------".format(len(dataUntilToday)))
-    sum = 0
-
-    for i in range(len(dataUntilToday)-1):
-        sum += dataUntilToday[i].consumo
-
-    sum /= len(dataUntilToday)-1
-    # print("---------------resultado: {}-----------------------".format(sum))
-    print("---------------mes atual:{}------------------------".format(dataUntilToday[-1].consumo))
-
-    return sum
-
-
 def get_time_series():
 
     #Se possivel, fazer serie temporal para analisar consumo.
-
+    
     return
 
-def compare_with_before():
 
-    # leituras = Leitura.select().where((Leitura.fk_sensor == 1) & (Leitura.data_leitura < Leitura.select(Leitura.data_leitura).max()))
+def is_alerta(leitura):
+
+    if len(Alerta_Sensor.select().where(Alerta_Sensor.fk_leitura == leitura)) > 0 :
+        return True
     
+    return False
 
-    # calcula media dos meses anteriores 
-    # consumo atual > 20% ?
-    # se sim = Alerta
-    # senao, fodase
-    # Nz+nx= nz   Ny > Nz + (nz*0,2)
-    # nz 
-
-
-    return
-    
 
 def main():
 
@@ -58,34 +33,21 @@ def main():
                 comparacao = leituras[j]
 
                 while(j >= 1):
-                
-                    is_alerta = len(Alerta_Sensor.select().where(Alerta_Sensor.fk_leitura == comparacao)) > 0
                     
-                    if(is_alerta):
+                    if(is_alerta(comparacao)):
                         j-=1
-                        comparacao = leituras[j]
-
-                        if(j == 0):
-                            is_alerta = False
-                        
+                        comparacao = leituras[j]             
 
                     else: break
 
-                if (not is_alerta) and (leituras[i].consumo >= 1.2* comparacao.consumo):
+                if (leituras[i].consumo >= 1.2* comparacao.consumo):
                     
                     descricao = "SENSOR " + str(s+1) + " AVISOU POSSIVEL VAZAMENTO\n" +\
                                 "CONSUMO DE " + str(leituras[i].consumo) + " m3\n" +\
                                 "LEITURA FEITA NA DATA " + str(leituras[i].data_leitura) +\
-                                " \nCOMPARADO COM CONSUMO DE " + str(comparacao.consumo)
+                                " \nCOMPARADO COM CONSUMO DE " + str(comparacao.consumo)+"\n"
 
-                    if(len(Alerta_Sensor.select().where(Alerta_Sensor.fk_leitura == leituras[i]))) == 0:
+                    if( not is_alerta(leituras[i]) ):
                         Alerta_Sensor.create(fk_leitura=leituras[i])
 
                     print(descricao)
-                    print()
-
-        for a in Alerta_Sensor.select():
-            print(a.fk_leitura.consumo)
-
-
-    # print("NO MES  " + str(i) + "  DEU MERDA")

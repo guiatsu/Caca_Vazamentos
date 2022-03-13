@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family:'Nunito Sans', sans-serif;
+    background-image:  url('/static/images/CacaVazamentos2.png');
+    background-size: 1920px 1080px;
+    overflow: hidden;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 670px;
+    height: 700px;
+    background-color: white;
+}
+
+.center h1 {
+    padding: 5px;
+    margin: 30px 35px;
+}
+
+.center form {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+form .txtfield {
+    margin: 30px 0;
+}
+
+.txtfield input {
+    width: 100%;
+    padding: 5px;
+    height: 50px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #F2F2F2 ;
+    outline: none;
+}
+
+.txtfield label {
+    font-family: 'League Spartan', sans-serif;
+    color: #231F20;
+} 
+
+.pass {
+    margin: -5px 0 20px 5px;
+    color: #231F20;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.pass:hover {
+    text-decoration: underline;
+}
+
+
+input[type="submit"]{
+    width: 40%;
+    height: 50px;
+    border: none;
+    background: #231F20; 
+    border-radius: 8px;
+    font-size: 25px;
+    color: #5DADEC;
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    text-transform: uppercase;
+    cursor:pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #5DADEC;
+    color: white;
+    border: #231F20 solid 1px;
+}
+
+.signup {
+    margin: 10px 0;
+    text-align: center;
+    font-size: 12px;
+    color: #231F20;
+}
+
+.signup a {
+    color: #231F20;
+    text-decoration: none;
+}
+
+.signup a:hover {
+    text-decoration: underline;
+}
+
+.button {
+    height: 50%;
+    padding-top:200px;
+}

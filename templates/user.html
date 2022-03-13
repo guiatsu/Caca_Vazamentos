@@ -8,8 +8,50 @@
     <script src="https://kit.fontawesome.com/a675d69de3.js" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}"/>
+    <script src="{{url_for('static',filename='jquery/dist/jquery.js')}}"></script>
+    <script>
+        $(function() {
+            $('#user').hover(
+            function() {
+                $('#invisibox').css('visibility', 'visible')
+            },
+            function(){
+                $('#invisibox').css('visibility', 'hidden')
+            }
+            
+            );
+            
+            $('#invisibox').hover(
+                function() {
+                    $(this).css('visibility','visible')
+                },
+                function() {
+                    $(this).css('visibility','hidden')
+                
+            });
+            $('#bell').hover(
+            function() {
+                $('#notif-invisibox').css('visibility', 'visible')
+            },
+            function(){
+                $('#notif-invisibox').css('visibility', 'hidden')
+            }
+            
+            );
+            
+            $('#notif-invisibox').hover(
+                function() {
+                    $(this).css('visibility','visible')
+                },
+                function() {
+                    $(this).css('visibility','hidden')
+                
+            });
+        });
+        </script>
 
     <title>Caça Vazamentos </title>
+
 </head>
 
 <body>
@@ -19,15 +61,16 @@
         <img src="{{url_for('static',filename='/images/logo_1.png')}}" alt="logo" class="logo" width="200" height="50"/>
             <nav> 
                 <ul>
-                    <li><a href="#"><i class="fa-solid fa-bell"></i> &nbsp Notificações</a></li>
-                    <li id="user"><a href="#"><i class="fa-solid fa-user"></i> &nbsp {{user_name}} </a></li>
+                    <li><a href="#" id="bell"><i class="fa-solid fa-bell"></i> &nbsp Notificações</a></li>
+                    <li id="user"><a href="#" id="oxe"><i class="fa-solid fa-user"></i> &nbsp {{user_name}} </a></li>
+                    <div class = "invisi-box" style = 'visibility: hidden' id="invisibox">Total de créditos: 00 <br> Sair </div>
+                    <div class = "notif-invisi-box" style = 'visibility: hidden' id="notif-invisibox">Nenhuma notificação</div>
                 </ul>
             </nav>           
         </div>
     </header>
 
     <main> 
-
         <div class="welcoming">
             <p>Olá! O que você <br> gostaria de fazer? </p>  
         </div> 

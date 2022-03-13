@@ -4,11 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="http://fonts.cdnfonts.com/css/league-spartan" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a675d69de3.js" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/login.css') }}"/>
+    <title>Login</title>
 </head>
 <body>
-    
-     <a href = "{{ url_for('user', user_name = 'testolho') }}" >  <h2> TESTE </h2> </a>
+    <div class="center">
+        <h1><img src="{{url_for('static',filename='/images/logo_3.png')}}" alt="logo" class="logo" width="200" height="50"/></h1>
+        <form method="post">
+            <div class="txtfield"> 
+                <label>CPF:</label>
+                <input type="text" required>
+            </div>
+            <div class="txtfield">
+                <label>Senha:</label>
+                <input type="password" required>
+            </div>
+            <div class="pass">Esqueci minha senha</div>
+            
+            <div class="button"> 
+                <input type="submit" value="Entrar">
+            </div>
+
+            <div class="signup"><a href="#">Quero me cadastrar</a>
+            </div> 
+        </form>
+
+    </div>
 
 </body>
 </html>
