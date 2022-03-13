@@ -4,55 +4,44 @@ from peewee import SqliteDatabase, Model,TextField, ForeignKeyField, DateTimeFie
 
 db = SqliteDatabase('caca_vazamentos.db')
 
-
 class BaseModel(Model):
     class Meta:
         database = db
 
 class Pessoa(BaseModel):
-    cpf = TextField(unique=True)
-    email = TextField(unique=True)
+    cpf = TextField(unique = True)
+    email = TextField(unique = True)
     senha = TextField()
-    creditos = IntegerField()
+    creditos = IntegerField(default = 0)
+    def Create(cpf,email,senha,creditos):
+        Pessoa.create(cpf = cpf, email = email, senha = senha, creditos = creditos)
 
 class Endereco(BaseModel):
     cep = TextField()
+    rua = TextField()
     num = TextField()
-
+    def Create(cep,rua,num):
+        Endereco.create(cep = cep, rua = rua, num = num)
 
 class Sensor(BaseModel):
-    id = TextField()
     fk_endereco = ForeignKeyField(Endereco, backref = 'endereco')
+    def Create(endereco):
+        Pessoa.create(fk_endereco = endereco)
+
         
 class Leitura(BaseModel):
     consumo = IntegerField()
     data_leitura = DateTimeField()
     fk_sensor = ForeignKeyField(Sensor, backref = 'sensor')
-class Denuncia(BaseModel):
-    fk_leitura = ForeignKeyField(Leitura, backref = 'leitura')
+    def Create(consumo,data_leitura,fk_sensor):
+            Pessoa.create(consumo = consumo, data_leitura = data_leitura, fk_sensor = fk_sensor)
     
-######################################################
+class Denuncia(BaseModel):
+    fk_pessoa = ForeignKeyField(Pessoa, backref = 'pessoa', null=True)
+    fk_endereco = ForeignKeyField(Endereco, backref ='endereco')
+    descricao = TextField()
+    def Create(fk_pessoa,fk_endereco,descricao):
+        Pessoa.create(fk_pessoa = fk_pessoa, fk_endereco = fk_endereco, descricao = descricao)
 
-# from peewee import *
-# from flask_peewee.db import Database
-# from flask_peewee.admin import Admin
-# from flask_peewee.auth import Auth,BaseUser
-
-# DATABASE = {
-#     'name': 'denuncias_vazamento',
-#     'engine': 'peewee.SqliteDatabase',
-# }
-# auth = Auth(app,db)
-# admin = Admin(app,auth)
-# from app.py import app
-
-# db = peewee.SqliteDatabase('denuncias_vazamento.db')
-# class BaseModel(Model):
-#     class Meta:
-#         database = db
-
-# class User(db.Model,BaseUser):
-#     cpf = CharField()
-#     password = CharField()
-#     is_superuser = BooleanField()
-
+class Alerta_Sensor(BaseModel):
+    fk_leitura = ForeignKeyField(Leitura, backref='leituras')

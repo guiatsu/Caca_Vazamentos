@@ -10,11 +10,43 @@
     
     <h3>Pessoa</h3>
 
+        {% for pessoa in pessoas %}
+
+            <p> {{pessoa.cpf}}, {{pessoa.email}}</p>
+
+        {%endfor%}
+            
+    <!-- <h3>Denuncias</h3>
+        {% for d in denuncias %}
+
+            <p> User {{d.fk_pessoa.cpf}} - "{{d.descricao}}" </p>
+
+        {%endfor%} -->
+        
+    <h3>Endereco</h3>
+
+        {% for e in enderecos %}
+
+            <p> {{e.cep}}, Rua: {{e.rua}}, Numero: {{e.num}}</p>
+
+        {%endfor%}
+        
     
-
     <h3>Sensor</h3>
+        
+        {% for s in sensores %}
 
+            <p> id : {{s.fk_endereco}}</p>
+
+        {%endfor%}
+        
     <h3>Leitura</h3>
+
+        {% for l in leituras %}
+
+            <p> Consumo : {{l.consumo}}, {{l.data_leitura}}, sensor {{l.fk_sensor}}</p>
+
+        {%endfor%}
 
 
 </body>

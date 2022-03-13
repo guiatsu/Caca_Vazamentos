@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>TypeError: unsupported operand type(s) for &amp;: 'str' and 'str' // Werkzeug Debugger</title>
+    <link rel="stylesheet" href="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.css" type="text/css">
+    <!-- We need to make sure this has a favicon so that the debugger does
+         not accidentally trigger a request to /favicon.ico which might
+         change the application's state. -->
+    <link rel="shortcut icon" href="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png">
+    <script src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.js"></script>
+    <script type="text/javascript">
+      var TRACEBACK = 140320312182720,
+          CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = "U7M8LFwkrUFDBoca0DxX";
+    </script>
+  </head>
+  <body style="background-color: #fff">
+    <div class="debugger">
+<h1>TypeError</h1>
+<div class="detail">
+  <p class="errormsg">TypeError: unsupported operand type(s) for &amp;: 'str' and 'str'</p>
+</div>
+<h2 class="traceback" style="cursor: pointer;">Traceback <em>(most recent call last)</em></h2>
+<div class="traceback">
+  <h3></h3>
+  <ul><li><div class="frame" id="frame-140320312181520">
+  <h4>File <cite class="filename">"/home/luis/.local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">2091</em>,
+      in <code class="function">__call__</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>def __call__(self, environ: dict, start_response: t.Callable) -&gt; t.Any:<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">        </span>"""The WSGI server calls the Flask application object as the<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">        </span>wrapped to apply middleware.<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">        </span>"""<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140320312182048">
+  <h4>File <cite class="filename">"/home/luis/.local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">2076</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>try:<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">                </span>response = self.full_dispatch_request()<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">            </span>except Exception as e:<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">                </span>error = e<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">                </span>raise<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">            </span>return response(environ, start_response)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">        </span>finally:<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140320312181952">
+  <h4>File <cite class="filename">"/home/luis/.local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">2073</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">        </span>error: t.Optional[BaseException] = None<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">        </span>try:<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">            </span>try:<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">            </span>except Exception as e:<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">                </span>error = e<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">                </span>response = self.handle_exception(e)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140320312182288">
+  <h4>File <cite class="filename">"/home/luis/.local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">1518</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>request_started.send(self)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">                </span>rv = self.dispatch_request()<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">        </span>except Exception as e:<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws"></span> <img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">        </span>self,<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">        </span>rv: t.Union[ResponseReturnValue, HTTPException],<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140320312183152">
+  <h4>File <cite class="filename">"/home/luis/.local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">1516</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>self.try_trigger_before_first_request_functions()<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">        </span>try:<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">            </span>request_started.send(self)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">        </span>except Exception as e:<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws"></span> <img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140320312183200">
+  <h4>File <cite class="filename">"/home/luis/.local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">1502</em>,
+      in <code class="function">dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>getattr(rule, "provide_automatic_options", False)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">            </span>and req.method == "OPTIONS"<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">        </span>):<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">            </span>return self.make_default_options_response()<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws"></span> <img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">        </span>"""Dispatches the request and on top of that performs request<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">        </span>error handling.<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre></div>
+</div>
+
+</li><li><div class="frame" id="frame-140320312183632">
+  <h4>File <cite class="filename">"/home/luis/Desktop/Caca_Vazamentos/app.py"</cite>,
+      line <em class="line">34</em>,
+      in <code class="function">forms</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>num = request.form["numero"]<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">        </span>rua = request.form["rua"]<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">        </span>descricao = request.form["description"]<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws">        </span>print(cep,num,rua,descricao)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line before"><span class="ws"></span> <img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line current"><span class="ws">        </span>if Endereco.select().where(cep == cep &amp; num == num &amp; rua == rua):<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">            </span>Endereco.create(cep = cep, num = num, rua = rua)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws"></span> <img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws"></span> <img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">        </span>for i in Endereco.select().dicts():<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre>
+<pre class="line after"><span class="ws">            </span>print(i)<img src="TypeError%20unsupported%20operand%20type(s)%20for%20&amp;%20'str'%20and%20'str'%20_%20Werkzeug%20Debugger_files/forms.png" title="Open an interactive python shell in this frame"></pre></div>
+</div>
+</li></ul>
+  <blockquote>TypeError: unsupported operand type(s) for &amp;: 'str' and 'str'</blockquote>
+</div>
+
+<div class="plain hidden">
+    <p>
+      This is the Copy/Paste friendly version of the traceback.
+    </p>
+    <pre>Traceback (most recent call last):
+  File "/home/luis/.local/lib/python3.8/site-packages/flask/app.py", line 2091, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/luis/.local/lib/python3.8/site-packages/flask/app.py", line 2076, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/luis/.local/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/luis/.local/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/luis/.local/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/luis/.local/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/luis/Desktop/Caca_Vazamentos/app.py", line 34, in forms
+    if Endereco.select().where(cep == cep &amp; num == num &amp; rua == rua):
+TypeError: unsupported operand type(s) for &amp;: 'str' and 'str'</pre>
+</div>
+<div class="explanation">
+  The debugger caught an exception in your WSGI application.  You can now
+  look at the traceback which led to the error.  <span class=""><p>To 
+switch between the interactive traceback and the plaintext one, you can 
+click on the "Traceback" headline. From the text traceback you can also 
+create a paste of it. For code execution mouse-over the frame you want 
+to debug and click on the console icon on the right side.</p><p>You can execute arbitrary Python code in the stack frames and there are some extra helpers available for introspection:</p><ul><li><code>dump()</code> shows all variables in the frame</li><li><code>dump(obj)</code> dumps all that's known about the object</li></ul></span>
+</div>
+      <div class="footer">
+        Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+        friendly Werkzeug powered traceback interpreter.
+      </div>
+    </div>
+
+    <div class="pin-prompt">
+      <div class="inner">
+        <h3>Console Locked</h3>
+        <p>
+          The console is locked and needs to be unlocked by entering the PIN.
+          You can find the PIN printed out on the standard output of your
+          shell that runs the server.
+        </p><form>
+          <p>PIN:
+            <input type="text" name="pin" size="14">
+            <input type="submit" name="btn" value="Confirm Pin">
+        </p></form>
+      </div>
+    </div>
+  
+
+
+
+</body></html>
+<!--
+
+Traceback (most recent call last):
+  File "/home/luis/.local/lib/python3.8/site-packages/flask/app.py", line 2091, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/luis/.local/lib/python3.8/site-packages/flask/app.py", line 2076, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/luis/.local/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/luis/.local/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/luis/.local/lib/python3.8/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/luis/.local/lib/python3.8/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/luis/Desktop/Caca_Vazamentos/app.py", line 34, in forms
+    if Endereco.select().where(cep == cep & num == num & rua == rua):
+TypeError: unsupported operand type(s) for &: 'str' and 'str'
+
+-->
