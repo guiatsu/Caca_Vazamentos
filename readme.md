@@ -41,9 +41,9 @@
   ```
   
   ## Como executar
-  
-    Para executar o programa basta entrar no diretório Caca_Vazamentos/ onde se encontra o arquivo app.py e executar o comando:
-    ```
-      python3 app.py
-    ```
-    Ou algum comando análogo
+
+Para executar o programa basta entrar no diretório Caca_Vazamentos/ onde se encontra o arquivo app.py e executar o comando:
+```
+python3 app.py
+```
+Ou algum comando análogo
